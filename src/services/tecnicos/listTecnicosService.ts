@@ -3,7 +3,7 @@ import { TecnicosRepositories } from "../../repositories/TecnicosRepository"
 
 import { classToPlain } from "class-transformer";
 
-class ListUserService {
+class ListTecnicosService {
   async execute() {
     const tecnicoRepository = getCustomRepository(TecnicosRepositories);
 
@@ -13,4 +13,4 @@ class ListUserService {
   }
 }
 
-export { ListUserService };
+export { ListTecnicosService };
