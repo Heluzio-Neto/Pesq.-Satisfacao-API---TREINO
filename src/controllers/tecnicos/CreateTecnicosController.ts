@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
-import { CreateTecnicoService } from "../services/tecnicos/createTecnicosService";
+import { CreateTecnicosService } from "../../services/tecnicos/CreateTecnicosService";
 
 class CreateTecnicoController { 
     async handle(req: Request, res: Response){
         const { name } = req.body;
 
-        const createTecnicoService = new CreateTecnicoService();
+        const createTecnicoService = new CreateTecnicosService();
 
         const tecnico = await createTecnicoService.execute({ 
             name

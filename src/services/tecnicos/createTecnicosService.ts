@@ -5,7 +5,7 @@ interface ITecnicoRequest{
     name: string;
 }
 
-class CreateTecnicoService{ 
+class CreateTecnicosService{ 
     async execute({name}: ITecnicoRequest){
         const tecnicoRepository = getCustomRepository(TecnicosRepositories);
 
@@ -19,4 +19,4 @@ class CreateTecnicoService{
     }
 }
 
-export { CreateTecnicoService }
+export { CreateTecnicosService }
