@@ -11,7 +11,7 @@ class CreateTecnicoController {
             name
         });
 
-        return res.json(tecnico);
+        return res.json(tecnico).status(201);
     }
 }
 

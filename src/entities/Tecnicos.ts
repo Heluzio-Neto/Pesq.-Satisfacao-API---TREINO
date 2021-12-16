@@ -6,8 +6,6 @@ import {
     UpdateDateColumn,
     Generated,
   } from "typeorm";
-import { v4 as uuid } from "uuid";
-
 @Entity("technical")
 class Tecnicos{
     
@@ -23,12 +21,6 @@ class Tecnicos{
 
     @UpdateDateColumn()
     updated_at: Date;
-
-    // constructor() {
-    //   if (!this.id) {
-    //     this.id = uuid();
-    //   }
-    // }
 }
 
 export { Tecnicos };
