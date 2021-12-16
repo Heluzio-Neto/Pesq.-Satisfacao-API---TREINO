@@ -26,8 +26,13 @@ export class CreateCalled1639578773939 implements MigrationInterface {
                     },
                     {
                         name:"nota",
-                        type:"int"
-                    }
+                        type:"number"
+                    },
+                    {
+                        name: "created_at",
+                        type: "timestamp",
+                        default: "now()",
+                      },
                 ],
                 foreignKeys: [
                     {

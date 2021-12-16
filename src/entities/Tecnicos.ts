@@ -1,18 +1,20 @@
 import {
     Entity,
-    PrimaryColumn,
+    PrimaryGeneratedColumn,
     Column,
     CreateDateColumn,
     UpdateDateColumn,
+    Generated,
   } from "typeorm";
 import { v4 as uuid } from "uuid";
 
-@Entity("tecnicos")
+@Entity("technical")
 class Tecnicos{
     
-    @PrimaryColumn()
-    readonly id: string;
-
+    @PrimaryGeneratedColumn()
+    @Generated("increment")
+    id: number;
+    
     @Column()
     name: string;
 
@@ -22,11 +24,11 @@ class Tecnicos{
     @UpdateDateColumn()
     updated_at: Date;
 
-    constructor() {
-        if (!this.id) {
-            this.id = uuid();
-        }
-    }
+    // constructor() {
+    //   if (!this.id) {
+    //     this.id = uuid();
+    //   }
+    // }
 }
 
 export { Tecnicos };
