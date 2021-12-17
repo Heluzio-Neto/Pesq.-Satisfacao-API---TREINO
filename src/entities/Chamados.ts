@@ -5,7 +5,6 @@ import {
     CreateDateColumn,
     Generated,
     JoinColumn,
-    OneToMany,
     ManyToOne,
   } from "typeorm";
 
@@ -24,11 +23,11 @@ class Chamados{
     cliente: string;
 
     @Column()
-    id_tecnico: number;
+    technical_id: string;
 
-    @JoinColumn({ name: "id_tecnico" })
+    @JoinColumn({ name: "technical_id" })
     @ManyToOne(() => Tecnicos)
-    idTecnico: Tecnicos
+    technicalIdentification: Tecnicos
 
     @Column()
     nota: number;

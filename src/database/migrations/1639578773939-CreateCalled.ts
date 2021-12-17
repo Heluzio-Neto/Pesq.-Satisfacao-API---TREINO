@@ -9,8 +9,10 @@ export class CreateCalled1639578773939 implements MigrationInterface {
                 columns: [
                     {
                         name:"id",
-                        type:"uuid",
-                        isPrimary: true
+                        type:"integer",
+                        generationStrategy:"increment",
+                        isGenerated:true,
+                        isPrimary: true,
                     },
                     {
                         name:"cod_chamado",
@@ -21,12 +23,12 @@ export class CreateCalled1639578773939 implements MigrationInterface {
                         type:"varchar",
                     },
                     {
-                        name:"id_tecnico",
+                        name:"technical_id",
                         type:"varchar",
                     },
                     {
                         name:"nota",
-                        type:"number"
+                        type:"integer"
                     },
                     {
                         name: "created_at",
@@ -36,10 +38,10 @@ export class CreateCalled1639578773939 implements MigrationInterface {
                 ],
                 foreignKeys: [
                     {
-                      name: "FKTecnico",
-                      referencedTableName: "tecnico",
+                      name: "FKTechnical_id",
+                      referencedTableName: "technical",
                       referencedColumnNames: ["id"],
-                      columnNames: ["id_tecnico"],
+                      columnNames: ["technical_id"],
                       onDelete: "SET NULL",
                       onUpdate: "SET NULL",
                     }

@@ -8,9 +8,7 @@ export class CreateTechnical1639617457803 implements MigrationInterface {
             columns: [
                 { 
                     name:"id",
-                    type:"integer",
-                    generationStrategy:"increment",
-                    isGenerated:true,
+                    type:"uuid",
                     isPrimary: true,
                 }, 
                 {
