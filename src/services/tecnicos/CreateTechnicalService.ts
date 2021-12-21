@@ -7,12 +7,15 @@ interface ITecnicoRequest{
 class CreateTechnicalService{ 
     async execute({name}: ITecnicoRequest){
         const technicalRepository = getCustomRepository(TecnicosRepositories);
+
         const userAlreadyExists = await technicalRepository.findOne({
-            name,
+            name
         });
+
         if (userAlreadyExists) {
             throw new Error("Technical already exists");
         }
+        
         const technical = technicalRepository.create({ 
             name
         });

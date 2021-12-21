@@ -6,6 +6,7 @@ import { ListTecnicosController } from "../controllers/tecnicos/ListTecnicosCont
 import { CreateCalledController } from "../controllers/chamados/CreateCalledController"
 import { ListCalledController } from "../controllers/chamados/ListCalledController";
 import { ListCalledByTechnicalController } from "../controllers/chamados/ListCalledByTechnicalController"
+import { ListCalledByNameService } from "../services/chamados/ListCalledByNameService";
 
 const router = Router();
 
@@ -15,6 +16,7 @@ const listTecnicosController = new ListTecnicosController();
 const createCalledService = new CreateCalledController();
 const listCalledService = new ListCalledController();
 const listCalledByTechnicalController = new ListCalledByTechnicalController();
+const listCalledByName = new ListCalledByNameService();
 
 //Tecnicos
 
@@ -26,5 +28,6 @@ router.get("/tecnicos", listTecnicosController.handle);
 router.post("/chamados",createCalledService.handle);
 router.get("/chamados", listCalledService.handle);
 router.get("/chamados/:id", listCalledByTechnicalController.handle);
+router.post("/chamados/buscar",createCalledService.handle);
 
 export { router };

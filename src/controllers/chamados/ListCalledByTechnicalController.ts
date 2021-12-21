@@ -3,7 +3,7 @@ import { ListCalledByTechnicalService } from "../../services/chamados/ListCalled
 
 class ListCalledByTechnicalController {
   async handle(request: Request, response: Response) {
-    const id = request.params.id ;
+    const id = request.params.id;
 
     const listCalledByTechnicalService = new ListCalledByTechnicalService();
 
