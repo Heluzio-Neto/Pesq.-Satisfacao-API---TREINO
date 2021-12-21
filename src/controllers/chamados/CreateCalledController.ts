@@ -5,16 +5,19 @@ class CreateCalledController {
         const {  cod_chamado, cliente,  technical_id, nota } = req.body;
         try{ 
             const createCalledService = new CreateCalledService();
-            if(cod_chamado !== 'string'){
-                return res.status(400).json({ errors: "Data type is invalid"});
+
+            console.log({cod_chamado})
+
+            if(typeof cod_chamado !== 'string'){
+                return res.status(400).json({ errors: "cod_chamado - Data  type is invalid"});
             }
-            else if(cliente !== 'string' || cliente.length <=5){
+            if(typeof cliente !== 'string' || cliente.length <=5){
                 return res.status(400).json({ errors: "size of name is small"});
             }
-            else if( technical_id !== 'string'){
-                return res.status(400).json({ errors: "Data type is invalid"});
+            if(typeof technical_id !== 'string'){
+                return res.status(400).json({ errors: "id Data type is invalid"});
             }
-            else if( nota !== 'number' || nota < 0 && nota < 5){
+            if(typeof nota !== 'number' || nota < 0 && nota < 5){
                 return res.status(400).json({ errors: "Data type is invalid || value invalid"});
             }
             

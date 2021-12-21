@@ -15,11 +15,11 @@ class ListCalledByNameService {
     const tecnicos = await tecnicoRepository.find();
 
     for(let t of tecnicos){
-        if(t.name.includes(name)){
+        if(t.name.toLocaleLowerCase().includes(name.toLocaleLowerCase())){
           const tecnico = await listCalledByTechnicalService.execute( t.id );
           return tecnico;
       }
-    } 
+    }
   }
 }
 
