@@ -1,18 +1,25 @@
 import { NextFunction, Request, Response } from "express";
 import { CreateTechnicalService } from "../../services/tecnicos/CreateTechnicalService";
+import * as Yup from "yup"
+
 class CreateTecnicoController { 
     async handle(req: Request, res: Response, next: NextFunction){
         const { name, email } = req.body;  
+
+        const createTechnicalService = new CreateTechnicalService();
         try{
-            if(typeof name !== 'string'){ 
-                return res.status(400).json({ errors: "Data type is invalid"});
-            } if(name.length <= 0 || name.length <=5){
-                return res.status(400).json({ errors: "size of name is small"});
-            }if(typeof email !== 'string' || email.length <= 0 && email.length > 20){ 
-                return res.status(400).json({ errors: "size of name is long"});
-            }
-            const createTecnicoService = new CreateTechnicalService();
-            const tecnico = await createTecnicoService.execute({name, email});
+            const data = { name, email }
+            const schema = Yup.object().shape({ 
+                name: Yup.string().required().min(5),
+                email: Yup.string().email().required()
+            })
+
+            await schema.validate(data, {
+                abortEarly: false,
+            })
+
+            const tecnico = await createTechnicalService.execute(data);
+
             return res.status(201).json(tecnico); 
         }catch(e){ 
             return res.status(400).json({errors: e.message});
