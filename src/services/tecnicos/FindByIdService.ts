@@ -1,14 +1,16 @@
 import { getCustomRepository } from "typeorm";
 import { TecnicosRepositories } from "../../repositories/TecnicosRepository"
 
-class ListTecnicosService {
-  async execute() {
+class FindTechnicalByIdService {
+  async execute(id : string) {
     const tecnicoRepository = getCustomRepository(TecnicosRepositories);
 
-    const tecnicos = await tecnicoRepository.find();
+    const technical = await tecnicoRepository.findOne({ 
+        id
+    });
 
-    return tecnicos;
+    return technical;
   }
 }
 
-export { ListTecnicosService };
+export { FindTechnicalByIdService };

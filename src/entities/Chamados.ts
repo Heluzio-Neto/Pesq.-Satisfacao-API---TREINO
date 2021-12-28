@@ -9,7 +9,7 @@ import {
   } from "typeorm";
 
   import { Tecnicos } from "./Tecnicos";
-@Entity("Chamados")
+@Entity("chamados")
 class Chamados{
     
     @PrimaryGeneratedColumn()
@@ -21,6 +21,12 @@ class Chamados{
 
     @Column()
     cliente: string;
+
+    @Column()
+    telefone: string;
+
+    @Column()
+    descricao: string;
 
     @Column()
     technical_id: string;

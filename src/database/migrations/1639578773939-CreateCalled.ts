@@ -7,7 +7,7 @@ export class CreateCalled1639578773939 implements MigrationInterface {
             new Table({ 
                 name: "chamados",
                 columns: [
-                    {
+                    {   
                         name:"id",
                         type:"integer",
                         generationStrategy:"increment",
@@ -23,6 +23,14 @@ export class CreateCalled1639578773939 implements MigrationInterface {
                         type:"varchar",
                     },
                     {
+                        name:"telefone",
+                        type:"varchar",
+                    },
+                    {
+                        name:"descricao",
+                        type:"varchar",
+                    },
+                    {
                         name:"technical_id",
                         type:"varchar",
                     },
@@ -34,7 +42,7 @@ export class CreateCalled1639578773939 implements MigrationInterface {
                         name: "created_at",
                         type: "timestamp",
                         default: "now()",
-                      },
+                    },
                 ],
                 foreignKeys: [
                     {

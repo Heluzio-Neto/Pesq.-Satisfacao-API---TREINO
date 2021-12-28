@@ -12,6 +12,10 @@ export class CreateTechnical1639617457803 implements MigrationInterface {
                     isPrimary: true,
                 }, 
                 {
+                    name:"email",
+                    type:"varchar"
+                },
+                {
                     name:"name",
                     type:"varchar"
                 },

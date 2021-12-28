@@ -3,9 +3,10 @@ import { TecnicosRepositories } from "../../repositories/TecnicosRepository"
 
 interface ITecnicoRequest{ 
     name: string;
+    email: string;
 }
 class CreateTechnicalService{ 
-    async execute({name}: ITecnicoRequest){
+    async execute({name, email}: ITecnicoRequest){
         const technicalRepository = getCustomRepository(TecnicosRepositories);
 
         const userAlreadyExists = await technicalRepository.findOne({
@@ -17,9 +18,11 @@ class CreateTechnicalService{
         }
         
         const technical = technicalRepository.create({ 
-            name
+            name,
+            email
         });
         await technicalRepository.save(technical);
+        
         return technical;
     }
 }
